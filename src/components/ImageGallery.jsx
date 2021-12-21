@@ -1,5 +1,7 @@
 import React from "react";
 import Item from "./ImageGalleryItem";
+import { Gallery } from "./ImageGallery.styled";
+
 const KEY = '23837167-bf1b53cb947cc958b90463dad';
 
 
@@ -21,11 +23,11 @@ class ImageGallery extends React.Component {
 
     render() {
         return (
-            <ul>
+            <Gallery>
                 {this.state.image &&
                     this.state.image.map((item) =>  <Item image={item} />)
                    }
-            </ul>
+            </Gallery>
         )
     }
 }
