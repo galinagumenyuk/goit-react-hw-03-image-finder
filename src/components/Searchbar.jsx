@@ -1,7 +1,3 @@
-// const KEY = '23837167-bf1b53cb947cc958b90463dad';
-
-// const URL = 'https://pixabay.com/api/?q=cat&page=1&key=your_key&image_type=photo&orientation=horizontal&per_page=12';
-
 import React from "react";
 import { Searchbar } from "./Searcbar.styled";
 
@@ -11,11 +7,14 @@ class SearchBar extends React.Component {
     state = {name: ""};
 
      handleNameChange = (e) => {
-        this.setState({ name: e.currentTarget.value});
+        this.setState({ name: e.currentTarget.value.toLowerCase()});
     }
 
     handleSubmit = (e) => {
         e.preventDefault();
+        if (this.state.name.trim() === "") {
+            return
+        }
          this.props.onSubmit(this.state);
          this.setState({ name: "" });
     };

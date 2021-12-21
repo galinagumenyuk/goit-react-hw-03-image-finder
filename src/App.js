@@ -1,18 +1,20 @@
 import React from "react";
 import "./App.css";
 import SearchBar from "./components/Searchbar";
+import ImageGallery from "./components/ImageGallery";
 
 class App extends React.Component {
   state = { name: "" };
 
-  addName = ({ name }) => {
-    this.setState({ name: { name } });
+  handleFormSubmit = ({ name }) => {
+    this.setState({ name });
   };
 
   render() {
     return (
       <div>
-        <SearchBar onSubmit={this.addName}></SearchBar>
+        <SearchBar onSubmit={this.handleFormSubmit} />
+        <ImageGallery name={this.state.name} />
       </div>
     );
   }
