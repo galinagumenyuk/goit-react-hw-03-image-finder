@@ -14,9 +14,14 @@ class ImageGallery extends React.Component {
     page = 1;
 
     componentDidUpdate(prevProps, prevState) {
-        debugger;
         if (!this.state.loading && (this.props.loadMore || (prevProps.query !== this.props.query))) {
-            this.setState({loading: true});
+            this.setState({ loading: true });
+            if (prevProps.query !== this.props.query) {
+                this.setState(prevState => ({
+                        results:[]
+                }));
+                 this.page = 1;
+            }
             fetch(`https://pixabay.com/api/?q=${this.props.query}&page=${this.page}&key=${KEY}&image_type=photo&orientation=horizontal&per_page=12`)
                 .then(res => res.json())
                 .then(data => data.hits)
@@ -29,7 +34,6 @@ class ImageGallery extends React.Component {
                     this.handleResults();
                     this.setState({ loading: false });
                     this.page += 1;
-                    console.log(this.page);
                 });
          }
     }
@@ -38,6 +42,7 @@ class ImageGallery extends React.Component {
          this.props.onUpd(this.state.results);
     };
 
+ 
     render() {
         return (
             <Gallery>
