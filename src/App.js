@@ -33,7 +33,9 @@ class App extends React.Component {
     }));
 
     this.setState({
-      filteredResults: this.state.results.filter((result) => result.id === id),
+      filteredResults: this.state.results.filter(
+        (result) => result.id === id
+      )[0],
     });
   };
 
