@@ -5,10 +5,11 @@ class ModalWindow extends React.Component {
     
 
     render() {
+        debugger;
         return (
             <Overlay>
                 <Modal>
-                    {/* <img src="" alt="" /> */}
+                    <img src={this.props.filteredResults.largeImageURL} alt={this.props.filteredResults.tags} />
                 </Modal>
             </Overlay>
         )

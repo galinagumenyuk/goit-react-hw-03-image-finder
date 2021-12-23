@@ -56,7 +56,7 @@ class ImageGallery extends React.Component {
         timeout={3000} //3 secs
       /> }
             <Gallery>
-                {this.state.results && this.state.results.map((item) => <Item key={item.id} image={item} />)}
+                    {this.state.results && this.state.results.map((item) => <Item key={item.id} image={item} onClick={() => this.props.onClick(item.id ) }/>)}
             </Gallery>
             </div>
         )
