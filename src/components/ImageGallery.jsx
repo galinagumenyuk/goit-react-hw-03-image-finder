@@ -1,4 +1,6 @@
 import React from "react";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Loader from "react-loader-spinner";
 import Item from "./ImageGalleryItem";
 import { Gallery } from "./ImageGallery.styled";
 
@@ -45,11 +47,18 @@ class ImageGallery extends React.Component {
  
     render() {
         return (
+            <div>
+                {this.state.loading && <Loader
+        type="ThreeDots"
+        color="#00BFFF"
+        height={100}
+        width={100}
+        timeout={3000} //3 secs
+      /> }
             <Gallery>
-                {this.state.results &&
-                    this.state.results.map((item) => <Item key={item.id} image={item} />)
-                   }
+                {this.state.results && this.state.results.map((item) => <Item key={item.id} image={item} />)}
             </Gallery>
+            </div>
         )
     }
 }
