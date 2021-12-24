@@ -1,11 +1,24 @@
 import React from "react";
 import "./App.css";
+import PropTypes from "prop-types";
 import SearchBar from "./components/Searchbar";
 import ImageGallery from "./components/ImageGallery";
 import ButtonLoadMore from "./components/Button";
 import ModalWindow from "./components/Modal";
 
 class App extends React.Component {
+  static propTypes = {
+    query: PropTypes.string,
+    results: PropTypes.array,
+    loadMore: PropTypes.bool,
+    showModal: PropTypes.bool,
+    filteredResults: PropTypes.array,
+    handleFormSubmit: PropTypes.func,
+    handleLoadingUpd: PropTypes.func,
+    handleOnClick: PropTypes.func,
+    toggleModal: PropTypes.func,
+  };
+
   state = {
     query: "",
     results: [],
