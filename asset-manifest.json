@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "//galinagumenyuk.github.io/goit-react-hw-03-image-finder/static/css/main.2a217bb8.css",
+    "main.js": "//galinagumenyuk.github.io/goit-react-hw-03-image-finder/static/js/main.433a4adc.js",
+    "index.html": "//galinagumenyuk.github.io/goit-react-hw-03-image-finder/index.html",
+    "main.2a217bb8.css.map": "//galinagumenyuk.github.io/goit-react-hw-03-image-finder/static/css/main.2a217bb8.css.map",
+    "main.433a4adc.js.map": "//galinagumenyuk.github.io/goit-react-hw-03-image-finder/static/js/main.433a4adc.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2a217bb8.css",
+    "static/js/main.433a4adc.js"
+  ]
+}
