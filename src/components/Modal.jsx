@@ -13,11 +13,15 @@ class ModalWindow extends React.Component {
 
     handleKeydown = e => {
             if (e.code === 'Escape') { this.props.onClose() };
-         }
+    }
+    
+    handleBackdropClick = e => {
+        if (e.currentTarget === e.target) { this.props.onClose();}
+    }
 
     render() {
         return (
-            <Overlay>
+            <Overlay onClick={this.handleBackdropClick}>
                 <Modal>
                     <img src={this.props.filteredResults.largeImageURL} alt={this.props.filteredResults.tags} />
                 </Modal>
