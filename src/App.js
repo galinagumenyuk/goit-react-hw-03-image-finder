@@ -50,7 +50,10 @@ class App extends React.Component {
           onClick={this.toggleModal}
         />
         {this.state.showModal && (
-          <ModalWindow filteredResults={this.state.filteredResults} />
+          <ModalWindow
+            filteredResults={this.state.filteredResults}
+            onClose={this.toggleModal}
+          />
         )}
         {this.state.results.length > 0 && (
           <ButtonLoadMore onClick={this.handleOnClick} />
