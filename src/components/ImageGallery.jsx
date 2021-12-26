@@ -4,8 +4,7 @@ import PropTypes from "prop-types";
 import Loader from "react-loader-spinner";
 import Item from "./ImageGalleryItem";
 import { Gallery } from "./ImageGallery.styled";
-
-const KEY = "23837167-bf1b53cb947cc958b90463dad";
+import getImages from "./api";
 
 class ImageGallery extends React.Component {
   static propTypes = {
@@ -33,21 +32,20 @@ class ImageGallery extends React.Component {
         }));
         this.page = 1;
       }
-      fetch(
-        `https://pixabay.com/api/?q=${this.props.query}&page=${this.page}&key=${KEY}&image_type=photo&orientation=horizontal&per_page=12`
-      )
-        .then((res) => res.json())
-        .then((data) => data.hits)
-        .then((results) => {
+      getImages(
+        this.props.query,
+        this.page,
+        (results) => {
           this.setState((prevState) => ({
             results: prevState.results.concat(results),
           }));
-        })
-        .finally(() => {
+        },
+        () => {
           this.handleResults();
           this.setState({ loading: false });
           this.page += 1;
-        });
+        }
+      );
     }
   }
 
